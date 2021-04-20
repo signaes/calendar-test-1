@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import { Month } from './components/Month';
 
 function App() {
+  const now = new Date();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Month
+        year={now.getFullYear()}
+        monthIndex={now.getMonth()}
+        className="bg-red-100 grid grid-cols-7"
+      />
+
+      <Month
+        year={now.getFullYear()}
+        monthIndex={now.getMonth() + 1}
+        className="bg-red-100 grid grid-cols-7"
+      />
     </div>
   );
 }
